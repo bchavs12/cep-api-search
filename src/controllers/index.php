@@ -2,4 +2,4 @@
 
 $heading = "Registro e pesquisa de endereços";
 
-require "views/index.view.php";
+require "src/views/index.view.php";

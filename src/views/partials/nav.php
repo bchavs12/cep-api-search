@@ -1,5 +1,6 @@
 <?php
-$basePath = str_replace('\\', '/meuapp', dirname($_SERVER['SCRIPT_NAME']));
+// Obtém a url com nome da pasta do projeto (Não remover);
+$baseRoute = str_replace('\\', '/meuapp', dirname($_SERVER['SCRIPT_NAME']));
 ?>
 
 <nav class="bg-gray-800">
@@ -13,12 +14,12 @@ $basePath = str_replace('\\', '/meuapp', dirname($_SERVER['SCRIPT_NAME']));
         </div>
         <div class=" md:block">
           <div class="ml-10 flex  space-x-4">
-            <a href="<?= $basePath ?>/"
+            <a href="<?= $baseRoute ?>/"
               class="<?= urlIs('/') ? 'bg-gray-900 text-white' : 'text-white' ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
               aria-current="page">Home</a>
-            <a href="<?= $basePath ?>/cadastrar"
+            <a href="<?= $baseRoute ?>/cadastrar"
               class="<?= urlIs('/cadastrar') ? 'bg-gray-900 text-white' : 'text-white' ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Cadastrar</a>
-            <a href="<?= $basePath ?>/visualizar"
+            <a href="<?= $baseRoute ?>/visualizar"
               class="<?= urlIs('/visualizar') ? 'bg-gray-900 text-white' : 'text-white' ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Visualizar</a>
           </div>
         </div>

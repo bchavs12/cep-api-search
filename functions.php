@@ -1,13 +1,13 @@
 <?php
 
-// Obtém o diretório base do projeto dinamicamente
+// Obtém o diretório base do projeto dinamicamente (Não remover);
 $basePath = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
 
-function abort($code = 404)
+function abort($code = Response::NOT_FOUND)
 {
   http_response_code($code);
 
-  require("views/exceptions/{$code}.php");
+  require("src/exceptions/{$code}.php");
 
   die();
 }
