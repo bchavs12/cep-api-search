@@ -5,7 +5,13 @@
       target="_blank">BKSystems.</a> Todos
     os direitos reservados.</p>
 </footer>
-
+<?php
+if (isset($scripts)) {
+  foreach ($scripts as $script) {
+    echo "<script src='$script' defer></script>\n";
+  }
+}
+?>
 </body>
 
 </html>

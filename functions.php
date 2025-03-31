@@ -1,7 +1,7 @@
 <?php
 
 // Obtém o diretório base do projeto dinamicamente (Não remover);
-$basePath = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
+$basePath = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/');
 
 function abort($code = Response::NOT_FOUND)
 {

@@ -1,8 +1,3 @@
-<?php
-// Obtém a url com nome da pasta do projeto (Não remover);
-$baseRoute = str_replace('\\', '/meuapp', dirname($_SERVER['SCRIPT_NAME']));
-?>
-
 <nav class="bg-gray-800">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 items-center">
@@ -15,12 +10,17 @@ $baseRoute = str_replace('\\', '/meuapp', dirname($_SERVER['SCRIPT_NAME']));
         <div class=" md:block">
           <div class="ml-10 flex  space-x-4">
             <a href="<?= $baseRoute ?>/"
-              class="<?= urlIs('/') ? 'bg-gray-900 text-white' : 'text-white' ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-              aria-current="page">Home</a>
+              class="<?= urlIs($baseRoute . '/') ? 'bg-gray-900 text-white' : 'text-white' ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+              Home
+            </a>
             <a href="<?= $baseRoute ?>/cadastrar"
-              class="<?= urlIs('/cadastrar') ? 'bg-gray-900 text-white' : 'text-white' ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Cadastrar</a>
+              class="<?= urlIs($baseRoute . '/cadastrar') ? 'bg-gray-900 text-white' : 'text-white' ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+              Cadastrar
+            </a>
             <a href="<?= $baseRoute ?>/visualizar"
-              class="<?= urlIs('/visualizar') ? 'bg-gray-900 text-white' : 'text-white' ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Visualizar</a>
+              class="<?= urlIs($baseRoute . '/visualizar') ? 'bg-gray-900 text-white' : 'text-white' ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+              Visualizar
+            </a>
           </div>
         </div>
       </div>

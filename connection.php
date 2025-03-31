@@ -3,7 +3,9 @@
 class Database
 {
 
-  public $connection;
+  protected $connection;
+
+  protected $statement;
 
   public function __construct($config, $username = 'root', $password = '')
   {
@@ -26,9 +28,28 @@ class Database
   public function query($query, $params = [])
   {
 
-    $stmt = $this->connection->prepare($query);
-    $stmt->execute($params);
+    $this->statement = $this->connection->prepare($query);
+    $this->statement->execute($params);
 
-    return $stmt;
+    return $this;
+  }
+
+  public function findAllResources()
+  {
+    return $this->findResourceOrFail($this->statement->fetchAll());
+  }
+
+  public function findResource()
+  {
+    return $this->findResourceOrFail($this->statement->fetch());
+  }
+
+  private function findResourceOrFail($resource)
+  {
+    if (!$resource) {
+      abort();
+    }
+
+    return $resource;
   }
 }
