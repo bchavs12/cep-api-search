@@ -34,22 +34,24 @@ class Database
     return $this;
   }
 
-  public function findAllResources()
+  public function get()
   {
-    return $this->findResourceOrFail($this->statement->fetchAll());
+    return $this->statement->fetchAll();
   }
 
   public function findResource()
   {
-    return $this->findResourceOrFail($this->statement->fetch());
+    return $this->statement->fetch();
   }
 
-  private function findResourceOrFail($resource)
+  public function findOrFail()
   {
-    if (!$resource) {
+    $result = $this->findResource();
+
+    if (! $result) {
       abort();
     }
 
-    return $resource;
+    return $result;
   }
 }

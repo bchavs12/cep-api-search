@@ -6,6 +6,6 @@ $db = new Database($config['devConfig']);
 
 $heading = "Lista de clientes";
 
-$clientes = $db->query("SELECT * FROM clientes")->findAllResources();
+$clientes = $db->query("SELECT * FROM clientes")->get();
 
 require "src/views/visualizar.view.php";
